@@ -1,4 +1,4 @@
-package by.javaguru.jis7.homework.hw_tulai;
+package by.javaguru.jis7.homework.tulai;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
