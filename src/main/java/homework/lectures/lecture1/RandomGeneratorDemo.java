@@ -1,22 +1,30 @@
 package homework.lectures.lecture1;
 
+import org.apache.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
 public class RandomGeneratorDemo {
-    public static void main(String[] args) throws IOException {
+    private static final Logger log = Logger.getLogger(MathOperationsDemo.class);
+    static int generatedNumbers;
 
+    public static void main(String[] args) throws IOException {
+        numberOfGeneratedNumbers();
+        arrayGeneratorMath(generatedNumbers);
+        arrayGeneratorRandom(generatedNumbers);
+    }
+
+    private static void numberOfGeneratedNumbers() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Сколько чисел сгенерировать?: ");
-        int n = Integer.parseInt(reader.readLine());
-        arrayGeneratorMath(n);
-        arrayGeneratorRandom(n);
+        log.info("Сколько чисел сгенерировать?: ");
+        generatedNumbers = Integer.parseInt(reader.readLine());
     }
 
     private static void arrayGeneratorMath(int n) {
-        System.out.println("Генератор класса Math:");
+        log.info("Генератор класса Math:");
         int[] array = new int[n];
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
@@ -24,11 +32,11 @@ public class RandomGeneratorDemo {
             System.out.println(array[i]);
             sum = sum + array[i];
         }
-        System.out.println("Сумма всех чисел: " + sum);
+        log.info("Сумма всех чисел: " + sum);
     }
 
     private static void arrayGeneratorRandom(int n) {
-        System.out.println("\nГенератор класса Random:");
+        log.info("\nГенератор класса Random:");
         int[] array = new int[n];
         int sum = 0;
         Random randomGenerator = new Random();
@@ -37,6 +45,6 @@ public class RandomGeneratorDemo {
             System.out.println(array[i]);
             sum = sum + array[i];
         }
-        System.out.println("Сумма всех чисел: " + sum);
+        log.info("Сумма всех чисел: " + sum);
     }
 }
