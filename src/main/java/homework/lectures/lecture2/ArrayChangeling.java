@@ -5,12 +5,11 @@ import homework.lectures.help.functions.ArraysSort;
 
 import java.util.Arrays;
 
-import homework.lectures.lecture1.MathOperationsDemo;
 import org.apache.log4j.Logger;
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.ArrayUtils;
 
 public class ArrayChangeling {
-    private static final Logger log = Logger.getLogger(MathOperationsDemo.class);
+    private static final Logger log = Logger.getLogger(ArrayChangeling.class);
 
     public static void main(String[] args) {
         int[] array1 = ArrayGeneratorIntRandom.arrayFilling(5);
