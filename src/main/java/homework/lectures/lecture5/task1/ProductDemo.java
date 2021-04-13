@@ -1,4 +1,4 @@
-package homework.lectures.lecture5;
+package homework.lectures.lecture5.task1;
 
 import org.apache.log4j.Logger;
 
