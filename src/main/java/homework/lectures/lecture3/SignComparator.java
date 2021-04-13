@@ -9,10 +9,9 @@ import java.io.InputStreamReader;
 public class SignComparator {
     private static final Logger log = Logger.getLogger(SignComparator.class);
     private static String result;
-    private static int number;
 
     public static void main(String[] args) throws IOException {
-        number = bufferReaderEnters();
+        var number = bufferReaderEnters();
         result = compare(number);
         log.info(result);
     }
