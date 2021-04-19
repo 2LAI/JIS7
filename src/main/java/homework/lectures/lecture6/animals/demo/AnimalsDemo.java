@@ -1,4 +1,4 @@
-package homework.lectures.lecture6.demo;
+package homework.lectures.lecture6.animals.demo;
 
 import homework.lectures.lecture6.animals.Animal;
 import homework.lectures.lecture6.animals.classes.objects.Cat;
