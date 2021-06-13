@@ -1,6 +1,5 @@
 package homework.lectures.streams.task1;
 
-import homework.lectures.lecture5.task1.ProductDemo;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
