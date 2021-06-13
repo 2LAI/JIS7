@@ -19,7 +19,6 @@ public class SimpleStreamDemo {
     }
 
     private static List<Integer> filterNumbers(ArrayList<Integer> generatedNumbers) {
-
         return generatedNumbers.stream().
                 filter(number -> number % 2 == 0)
                 .collect(Collectors.toList());
