@@ -8,10 +8,21 @@ import java.util.List;
 public class ChangeUserStatus {
 
     public static void changeGuestStatusToUser(List<User> userList) {
-
         userList.stream()
                 .filter(guest -> guest.getUserStatus().equals(UserStatus.GUEST))
-                .forEach(guest -> guest.setUserStatus(UserStatus.USER));
-
+                .forEach(ChangeUserStatus::changeStatusAndFlagGuest);
     }
+
+    private static void changeStatusAndFlagGuest(User guest) {
+        guest.setUserStatus(UserStatus.USER);
+        guest.setActive(true);
+    }
+
+    public static void changeUserStatusToVip(List<User> userList) {
+        userList.stream()
+                .filter(user -> user.getUserStatus().equals(UserStatus.USER))
+                .forEach(user -> user.setUserStatus(UserStatus.VIP_USER));
+    }
+
+
 }

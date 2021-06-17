@@ -3,11 +3,14 @@ package homework.lectures.streams.task2.repository;
 import homework.lectures.streams.task2.demo.ChangeUserStatus;
 import homework.lectures.streams.task2.model.User;
 import homework.lectures.streams.task2.model.UserStatus;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository {
+
+    private static final Logger log = Logger.getLogger(UserRepository.class);
 
     public static void main(String[] args) {
         List<User> userList = new ArrayList<>();
@@ -17,9 +20,12 @@ public class UserRepository {
         userList.add(new User(3, "Dmitryj", "Mel", "DMel", true, UserStatus.USER));
         userList.add(new User(4, "Ekaterina", "Krasikova", "EK2F4", false, UserStatus.GUEST));
 
-        System.out.println(userList);
-        System.out.println("After sorted\n");
+        log.info(userList);
         ChangeUserStatus.changeGuestStatusToUser(userList);
-        System.out.println(userList);
+        log.info("After guest changes\n");
+        log.info(userList);
+        ChangeUserStatus.changeUserStatusToVip(userList);
+        log.info("After user changes\n");
+        log.info(userList);
     }
 }
