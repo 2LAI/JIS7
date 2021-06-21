@@ -1,6 +1,7 @@
 package homework.lectures.streams.task2.demo;
 
 import homework.lectures.streams.task2.logic.ChangeUserStatus;
+import homework.lectures.streams.task2.logic.FindUser;
 import homework.lectures.streams.task2.repository.UserRepository;
 import org.apache.log4j.Logger;
 
@@ -21,6 +22,8 @@ public class taskDemo {
         log.info(userList + "\n");
         log.info("Adult user list:");
         log.info(adultUsersList + "\n");
+
+        log.info(FindUser.countUsers(userList));
     }
 }
 
