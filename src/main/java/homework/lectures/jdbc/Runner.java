@@ -2,7 +2,7 @@ package homework.lectures.jdbc;
 
 import homework.lectures.jdbc.service.CustomerService;
 import homework.lectures.jdbc.service.CustomerServiceImpl;
-import homework.lectures.model.Customer;
+import homework.lectures.jdbc.model.Customer;
 import homework.lectures.utils.functions.ReadLineConsole;
 import org.apache.log4j.Logger;
 

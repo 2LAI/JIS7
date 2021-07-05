@@ -1,10 +1,9 @@
 package homework.lectures.jdbc.service;
 
 import homework.lectures.jdbc.dbconfig.Connector;
-import homework.lectures.model.Customer;
+import homework.lectures.jdbc.model.Customer;
 import org.apache.log4j.Logger;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

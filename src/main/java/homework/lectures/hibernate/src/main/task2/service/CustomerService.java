@@ -1,6 +1,8 @@
-package homework.lectures.jdbc.service;
+package homework.lectures.hibernate.src.main.task2.service;
 
-import homework.lectures.jdbc.model.Customer;
+
+
+import homework.lectures.hibernate.src.main.task2.model.Customer;
 
 import java.sql.SQLException;
 import java.util.Collection;

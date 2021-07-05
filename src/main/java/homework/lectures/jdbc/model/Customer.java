@@ -1,4 +1,4 @@
-package homework.lectures.model;
+package homework.lectures.jdbc.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
