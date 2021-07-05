@@ -17,5 +17,6 @@ public interface CustomerService {
 
     Customer removeById(Integer id) throws SQLException, ClassNotFoundException;
 
+    Collection<Customer> findByLetters() throws SQLException, ClassNotFoundException;
 
 }
