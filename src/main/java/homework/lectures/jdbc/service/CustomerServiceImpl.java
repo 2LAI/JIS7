@@ -2,21 +2,29 @@ package homework.lectures.jdbc.service;
 
 import homework.lectures.jdbc.dbconfig.Connector;
 import homework.lectures.model.Customer;
+import org.apache.log4j.Logger;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 
+import static homework.lectures.jdbc.dbconfig.Connector.getConnection;
+
 public class CustomerServiceImpl implements CustomerService {
+
+    private static final Logger log = Logger.getLogger(CustomerServiceImpl.class);
+
 
     @Override
     public Customer create(String firstName, String lastName, String email, String phoneNumber) throws SQLException, ClassNotFoundException {
 
-        var connection = Connector.getConnection();
+        var connection = getConnection();
 
-        String sql1 = "INSERT INTO \"customer\" (first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO \"customer\" (first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?)";
 
-        PreparedStatement statement = connection.prepareStatement(sql1);
+        PreparedStatement statement = connection.prepareStatement(sql);
 
         statement.setString(1, firstName);
         statement.setString(2, lastName);
@@ -35,17 +43,68 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Collection<Customer> findAll() throws SQLException, ClassNotFoundException {
-        return null;
+
+        var statement = Connector.getStatement();
+        String sql = "SELECT * FROM \"customer\";";
+        Collection<Customer> customersList = new ArrayList<>();
+
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        while (resultSet.next()) {
+            Customer customer = new Customer();
+            customer.setId(resultSet.getInt("id"));
+            customer.setFirstName(resultSet.getString("first_name"));
+            customer.setLastName(resultSet.getString("last_name"));
+            customer.setEmail(resultSet.getString("email"));
+            customer.setPhoneNumber(resultSet.getString("phone_number"));
+            customersList.add(customer);
+        }
+
+        resultSet.close();
+        statement.close();
+        statement.getConnection().close();
+
+        return customersList;
     }
 
     @Override
-    public Customer update(Customer customer) throws SQLException, ClassNotFoundException {
-        return null;
+    public Customer update(Customer customer, Integer id) throws SQLException, ClassNotFoundException {
+        String sql = "UPDATE \"customer\" SET first_name = ?, last_name = ?, email = ?, phone_number = ? WHERE id = " + id;
+
+        var connection = getConnection();
+        var statement = connection.prepareStatement(sql);
+
+        statement.setString(1, customer.getFirstName());
+        statement.setString(2, customer.getLastName());
+        statement.setString(3, customer.getEmail());
+        statement.setString(4, customer.getPhoneNumber());
+
+        int rowsInserted = statement.executeUpdate();
+        if (rowsInserted > 0) {
+            log.info("Customer has been updated successfully");
+        }
+        statement.close();
+        connection.close();
+
+        return customer;
     }
 
     @Override
     public Customer getById(Integer id) throws SQLException, ClassNotFoundException {
-        return null;
+        var statement = Connector.getStatement();
+        String sql = "SELECT * FROM \"customer\" WHERE id = " + id;
+
+        ResultSet resultSet = statement.executeQuery(sql);
+        Customer customer = new Customer();
+
+        if (resultSet.next()) {
+            customer.setId(id);
+            customer.setFirstName(resultSet.getString("first_name"));
+            customer.setLastName(resultSet.getString("last_name"));
+            customer.setEmail(resultSet.getString("email"));
+            customer.setPhoneNumber(resultSet.getString("phone_number"));
+        }
+        return customer;
     }
 
     @Override

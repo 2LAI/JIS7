@@ -11,7 +11,7 @@ public interface CustomerService {
 
     Collection<Customer> findAll() throws SQLException, ClassNotFoundException;
 
-    Customer update(Customer customer) throws SQLException, ClassNotFoundException;
+    Customer update(Customer customer, Integer id) throws SQLException, ClassNotFoundException;
 
     Customer getById(Integer id) throws SQLException, ClassNotFoundException;
 
