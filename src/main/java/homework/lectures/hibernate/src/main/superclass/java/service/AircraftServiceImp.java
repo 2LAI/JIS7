@@ -1,8 +1,9 @@
-package homework.lectures.hibernate.src.main.java.service;
+package homework.lectures.hibernate.src.main.superclass.java.service;
 
-import homework.lectures.hibernate.src.main.java.configuration.HibernateSessionFactoryUtil;
-import homework.lectures.hibernate.src.main.java.model.Aircraft;
-import homework.lectures.hibernate.src.main.java.model.Plane;
+import homework.lectures.hibernate.src.main.superclass.java.configuration.HibernateSessionFactoryUtil;
+import homework.lectures.hibernate.src.main.superclass.java.model.Aircraft;
+import homework.lectures.hibernate.src.main.superclass.java.model.Helicopter;
+import homework.lectures.hibernate.src.main.superclass.java.model.Plane;
 
 public class AircraftServiceImp implements AircraftService {
 
@@ -20,7 +21,7 @@ public class AircraftServiceImp implements AircraftService {
     @Override
     public Aircraft createHelicopter(String modelName, Double maxAltitude, Boolean verticalTakeOff) {
         var session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Aircraft helicopter = new Plane(modelName, maxAltitude, verticalTakeOff);
+        Aircraft helicopter = new Helicopter(modelName, maxAltitude, verticalTakeOff);
         var transaction = session.beginTransaction();
         session.save(helicopter);
         transaction.commit();

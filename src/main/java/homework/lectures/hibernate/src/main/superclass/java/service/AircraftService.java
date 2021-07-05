@@ -1,6 +1,6 @@
-package homework.lectures.hibernate.src.main.java.service;
+package homework.lectures.hibernate.src.main.superclass.java.service;
 
-import homework.lectures.hibernate.src.main.java.model.Aircraft;
+import homework.lectures.hibernate.src.main.superclass.java.model.Aircraft;
 
 public interface AircraftService {
 

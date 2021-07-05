@@ -1,8 +1,8 @@
-package homework.lectures.hibernate.src.main.java.configuration;
+package homework.lectures.hibernate.src.main.superclass.java.configuration;
 
-import homework.lectures.hibernate.src.main.java.model.Aircraft;
-import homework.lectures.hibernate.src.main.java.model.Helicopter;
-import homework.lectures.hibernate.src.main.java.model.Plane;
+import homework.lectures.hibernate.src.main.superclass.java.model.Aircraft;
+import homework.lectures.hibernate.src.main.superclass.java.model.Helicopter;
+import homework.lectures.hibernate.src.main.superclass.java.model.Plane;
 import lombok.SneakyThrows;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -20,7 +20,7 @@ public class HibernateSessionFactoryUtil {
         if (sessionFactory == null) {
             Configuration configuration = new Configuration();
             Properties properties = new Properties();
-            properties.load(new FileReader("src\\main\\java\\homework\\lectures\\hibernate\\src\\main\\resources\\hibernate.properties"));
+            properties.load(new FileReader("src\\main\\java\\homework\\lectures\\hibernate\\src\\main\\superclass\\resources\\hibernate.properties"));
             configuration.setProperties(properties);
             configuration.addAnnotatedClass(Aircraft.class);
             configuration.addAnnotatedClass(Helicopter.class);

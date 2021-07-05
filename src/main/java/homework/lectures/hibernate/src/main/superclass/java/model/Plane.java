@@ -1,4 +1,4 @@
-package homework.lectures.hibernate.src.main.java.model;
+package homework.lectures.hibernate.src.main.superclass.java.model;
 
 
 import lombok.Data;
